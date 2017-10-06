@@ -40,7 +40,7 @@ class ProjectSprint(models.Model):
     def _task_count(self):
         for task in self:
             tasks = self.env['project.task'].search(
-                    [('sprint_id', '=', self.id)])
+                [('sprint_id', '=', self.id)])
             task.task_count = len(tasks)
 
     @api.constrains("is_current_sprint")
